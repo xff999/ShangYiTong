@@ -24,6 +24,7 @@ import java.util.Random;
 @Api(tags = "医院设置管理") //配置swagger的中文提示
 @RestController //合成的注解
 @RequestMapping("/admin/hosp/hospitalSet")
+//@CrossOrigin  //跨域访问要加入的注解  -->使用gateway 的配置类，就不用加了
 public class HospitalSetController {
 
     @Autowired
@@ -58,19 +59,22 @@ public class HospitalSetController {
                                  @RequestBody(required = false) HospitalSetQueryVo hospitalSetQueryVo){ //
         //创建分页的对象 ，传入当前页，每页记录数
         Page<HospitalSet> page = new Page<>(current,limit);
-
         //创建查询的条件语句对象
         QueryWrapper<HospitalSet> wrapper = new QueryWrapper<>();
-        //先从对象里面得到信息
-        String hosname = hospitalSetQueryVo.getHosname();
-        String hoscode = hospitalSetQueryVo.getHoscode();
-        //判断这个条件是否为空，不为空，才添加到，条件对象中
-        if(!StringUtils.isEmpty(hosname)){
-            wrapper.like("hosname", hosname); //wapper 的条件查询
-        }
-        if(!StringUtils.isEmpty(hoscode)){
-            wrapper.eq("hoscode", hoscode);
-        }
+           if (hospitalSetQueryVo  !=null){
+
+               //先从对象里面得到信息
+               String hosname = hospitalSetQueryVo.getHosname();
+               String hoscode = hospitalSetQueryVo.getHoscode();
+               //判断这个条件是否为空，不为空，才添加到，条件对象中
+               if(!StringUtils.isEmpty(hosname)){
+                   wrapper.like("hosname", hosname); //wapper 的条件查询
+               }
+               if(!StringUtils.isEmpty(hoscode)){
+                   wrapper.eq("hoscode", hoscode);
+               }
+           }
+
       //service 调用方法,实现分页 条件 ，传入page wrapper条件
        Page<HospitalSet> pagehospitalSet = hospitalSetService.page(page,wrapper);
 

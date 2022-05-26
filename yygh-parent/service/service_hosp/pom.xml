@@ -18,25 +18,35 @@
             <artifactId>model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>com.xff</groupId>-->
-<!--            <artifactId>common</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
-
+<!--        引入远程调用抽取的模块-->
         <dependency>
             <groupId>com.xff</groupId>
-            <artifactId>service_util</artifactId>
+            <artifactId>service-cmn-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
 
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xff</groupId>
+            <artifactId>service_util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.xff</groupId>
             <artifactId>common_util</artifactId>
             <version>1.0</version>
         </dependency>
+    <!--mongoDB 整合的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+
     </dependencies>
 
 </project>
