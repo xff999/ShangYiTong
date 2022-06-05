@@ -318,12 +318,13 @@ public  class ScheduleServiceImpl implements ScheduleService {
         return result;
     }
 
-    //获取排班id获取排班数据
+    ////获取排班id获取排班数据
     @Override
-    public Schedule getScheduleId(String scheduleId) {
-        Schedule schedule = scheduleRepository.findById(scheduleId).get();
+    public Schedule getScheduleId(String hosScheduleId) {
+        Schedule schedule = scheduleRepository.findById(hosScheduleId).get();
         return this.packageSchedule(schedule);
     }
+
 
     //根据排班id获取预约下单数据
     @Override
