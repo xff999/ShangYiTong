@@ -91,11 +91,13 @@ public class HospApiController {
             @PathVariable String workDate) {
         return Result.ok(scheduleService.getDetailSchedule(hoscode, depcode, workDate));
     }
+
+
   //获取排班id获取排班数据
     @ApiOperation(value = "获取排班id获取排班数据")
-    @GetMapping("getSchedule/{scheduleId}")
-    public Result getSchedule(@PathVariable String scheduleId) {
-        Schedule schedule = scheduleService.getScheduleId(scheduleId);
+    @GetMapping("getSchedule/{hosScheduleId}")
+    public Result getSchedule(@PathVariable String hosScheduleId) {
+        Schedule schedule = scheduleService.getScheduleId(hosScheduleId);
         return Result.ok(schedule);
     }
 
@@ -115,7 +117,6 @@ public class HospApiController {
             @PathVariable("hoscode") String hoscode) {
         return hospitalSetService.getSignInfoVo(hoscode);
     }
-
 
 }
 
