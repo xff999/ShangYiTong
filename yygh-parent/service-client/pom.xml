@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yygh-parent</artifactId>
+        <groupId>com.xff</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>service-client</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>service-cmn-client</module>
+        <module>service-user-cli</module>
+        <module>service-hosp-client</module>
+    </modules>
+
+    <dependencies>
+<!--          引入其他模块的 依赖-->
+         <dependency>
+             <groupId>com.xff</groupId>
+             <artifactId>common_util</artifactId>
+             <version>1.0</version>
+         </dependency>
+         <dependency>
+             <groupId>com.xff</groupId>
+             <artifactId>model</artifactId>
+             <version>0.0.1-SNAPSHOT</version>
+         </dependency>
+
+<!--         web 启动器的依赖-->
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-web</artifactId>
+             <scope>provided </scope>
+         </dependency>
+         <!-- 服务调用feign -->
+         <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-openfeign</artifactId>
+             <scope>provided </scope>
+         </dependency>
+
+     </dependencies>
+
+
+</project>
